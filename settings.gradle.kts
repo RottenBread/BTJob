@@ -1,1 +1,1 @@
-rootProject.name = "BTJob"
+rootProject.name = "BTFishnet"
