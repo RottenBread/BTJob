@@ -1,0 +1,4 @@
+name: BTFishnet
+version: '1.0-SNAPSHOT'
+main: org.rottenbread.bTFishnet.BTFishnet
+api-version: '1.21'
