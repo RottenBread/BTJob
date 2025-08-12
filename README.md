@@ -1,17 +1,18 @@
 # BTJob
-Minecraft simple job plugin <br>
-간단한 마인크래프트 직업 플러그인
+간단한 마인크래프트 직업 플러그인! <br>
+당신의 서버에 직업을 추가해 보아요
 
 # API
 GetLevel.getFarmer(player) - player 의 농부 레벨을 불러옵니다. <br>
 GetLevel.getFisher(player) - player 의 어부 레벨을 불러옵니다. <br>
 GetLevel.getMiner(player) - player 의 광부 레벨을 불러옵니다.
 
-# TO-DO
-config.yml 로 점수 자율화 <br>
-전투 직업 추가
+# Updates
+v1.0 - 릴리즈 <br>
+v1.1 - 경험치가 초과하였을때 레벨이 오르지 않는 오류 수정, 잘못 업로드된 파일 교체
 
 # License
-사용 및 수정 완전 자유입니다. <br>
-빌드 하는법 모르겠다 하시면 1,000원 받고 파일로 보내드립니다. <br>
-Discord contact : mooooooooooooooon_
+없음 <br>
+
+<br>
+Discord contact : jhmoon_aa
