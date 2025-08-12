@@ -1,4 +1,8 @@
-name: BTFishnet
+name: BTJob
 version: '1.0-SNAPSHOT'
-main: org.rottenbread.bTFishnet.BTFishnet
-api-version: '1.21'
+main: org.rottenbread.bTJob.BTJob
+api-version: '1.20'
+commands:
+  job:
+    description: BTJob
+    usage: /job
