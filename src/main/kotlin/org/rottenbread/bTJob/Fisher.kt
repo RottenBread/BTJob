@@ -22,7 +22,6 @@ class Fisher : Listener {
 
             fisher.saveEXP(player, currentExp + 35)
 
-            showBar.showBar(player, "§b어부 §f레벨 §b$currentLV §f경험치 (${(progressEXP * 100).roundToInt()}%)", progressEXP)
             if (currentExp >= currentLV * 70) {
                 fisher.saveEXP(player, 0)
                 fisher.saveLV(player, currentLV + 1)
@@ -32,6 +31,9 @@ class Fisher : Listener {
                     "§b어부 §f레벨 §b$currentLV §f경험치 (${(progressEXP * 100).roundToInt()}%)",
                     progressEXP
                 )
+            }
+            else {
+                showBar.showBar(player, "§b어부 §f레벨 §b$currentLV §f경험치 (${(progressEXP * 100).roundToInt()}%)", progressEXP)
             }
         }
     }
