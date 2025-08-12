@@ -82,10 +82,13 @@ class Miner : Listener {
             } else -> return
         }
         if (currentExp >= currentLV * 70) {
-            miner.saveEXP(player, 0)
+            miner.saveEXP(player, currentExp-(currentLV * 70))
             miner.saveLV(player, currentLV + 1)
             player.sendMessage("§a[직업] §f광부의 레벨이 올랐어요! §e$currentLV 레벨 §f-> §e${currentLV + 1} 레벨")
-            showBar.showBar(player,"§b광부 §f레벨 §b$currentLV §f경험치 (${(progressEXP * 100).roundToInt()}%)", progressEXP)
+            val crEXP = miner.loadEXP(player)
+            val crLV = miner.loadLV(player)
+            val pgEXP = crEXP.toDouble()/(crLV.toDouble() * 70)
+            showBar.showBar(player,"§b광부 §f레벨 §b$crLV §f경험치 (${(pgEXP * 100).roundToInt()}%)", pgEXP)
         }
         else {
             showBar.showBar(player, "§b광부 §f레벨 §b$currentLV §f경험치 (${(progressEXP * 100).roundToInt()}%)", progressEXP)

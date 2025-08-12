@@ -42,8 +42,11 @@ class Farmer : Listener {
         if (currentExp >= currentLV * 70) {
             farmer.saveEXP(player, 0)
             farmer.saveLV(player, currentLV + 1)
+            val crEXP = farmer.loadEXP(player)
+            val crLV = farmer.loadLV(player)
+            val pgEXP = crEXP.toDouble()/(crLV.toDouble() * 70)
             player.sendMessage("§a[직업] §f농부의 레벨이 올랐어요! §e$currentLV 레벨 §f-> §e${currentLV + 1} 레벨")
-            showBar.showBar(player, "§b농부 §f레벨 §b$currentLV §f경험치 (${(progressEXP * 100).roundToInt()}%)", progressEXP)
+            showBar.showBar(player, "§b농부 §f레벨 §b$crLV §f경험치 (${(pgEXP * 100).roundToInt()}%)", pgEXP)
         }
         else {
             showBar.showBar(player, "§b농부 §f레벨 §b$currentLV §f경험치 (${(progressEXP * 100).roundToInt()}%)", progressEXP)

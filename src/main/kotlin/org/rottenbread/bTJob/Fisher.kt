@@ -25,11 +25,14 @@ class Fisher : Listener {
             if (currentExp >= currentLV * 70) {
                 fisher.saveEXP(player, 0)
                 fisher.saveLV(player, currentLV + 1)
+                val crEXP = fisher.loadEXP(player)
+                val crLV = fisher.loadLV(player)
+                val pgEXP = crEXP.toDouble()/(crLV.toDouble() * 70)
                 player.sendMessage("§a[직업] §f어부의 레벨이 올랐어요! §e$currentLV 레벨 §f-> §e${currentLV + 1} 레벨")
                 showBar.showBar(
                     player,
-                    "§b어부 §f레벨 §b$currentLV §f경험치 (${(progressEXP * 100).roundToInt()}%)",
-                    progressEXP
+                    "§b어부 §f레벨 §b$crLV §f경험치 (${(pgEXP * 100).roundToInt()}%)",
+                    pgEXP
                 )
             }
             else {
