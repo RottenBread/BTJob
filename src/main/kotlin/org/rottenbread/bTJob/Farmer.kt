@@ -20,36 +20,38 @@ class Farmer : Listener {
         val player = event.player
 
         val farmer = DataSave("farmer")
-        val currentExp = farmer.loadEXP(player)
-        val currentLV = farmer.loadLV(player)
-        val progressEXP = currentExp.toDouble()/(currentLV.toDouble() * 70)
 
         when (block.type) {
             Material.WHEAT, Material.POTATOES, Material.CARROTS, Material.BEETROOTS, Material.COCOA, Material.NETHER_WART -> {
                 val data = block.blockData
                 if (data is Ageable && data.age == data.maximumAge) {
-                    farmer.saveEXP(player, currentExp + 1)
+                    farmer.saveEXP(player, farmer.loadEXP(player) + 1)
                 }
             }
             Material.MELON, Material.PUMPKIN -> {
                 if (!BlockStorage.contains(location)) {
-                    farmer.saveEXP(player, currentExp + 1)
+                    farmer.saveEXP(player, farmer.loadEXP(player) + 1)
                 } else {
                     BlockStorage.removeBlock(location)
                 }
             } else -> return
         }
-        if (currentExp >= currentLV * 70) {
-            farmer.saveEXP(player, 0)
-            farmer.saveLV(player, currentLV + 1)
-            val crEXP = farmer.loadEXP(player)
-            val crLV = farmer.loadLV(player)
-            val pgEXP = crEXP.toDouble()/(crLV.toDouble() * 70)
-            player.sendMessage("§a[직업] §f농부의 레벨이 올랐어요! §e$currentLV 레벨 §f-> §e${currentLV + 1} 레벨")
-            showBar.showBar(player, "§b농부 §f레벨 §b$crLV §f경험치 (${(pgEXP * 100).roundToInt()}%)", pgEXP)
+        if (farmer.loadEXP(player) >= farmer.loadLV(player) * 70) {
+            farmer.saveEXP(player, farmer.loadEXP(player)-(farmer.loadLV(player) * 70))
+            farmer.saveLV(player, farmer.loadLV(player) + 1)
+            player.sendMessage("§a[직업] §f농부의 레벨이 올랐어요! §e${farmer.loadLV(player) - 1} 레벨 §f-> §e${farmer.loadLV(player)} 레벨")
+            showBar.showBar(
+                player,
+                "§b농부 §f레벨 §b$farmer.loadLV(player) §f경험치 (${(farmer.loadEXP(player).toDouble()/(farmer.loadLV(player).toDouble() * 70) * 100).roundToInt()}%)",
+                farmer.loadEXP(player).toDouble()/(farmer.loadLV(player).toDouble() * 70)
+            )
         }
         else {
-            showBar.showBar(player, "§b농부 §f레벨 §b$currentLV §f경험치 (${(progressEXP * 100).roundToInt()}%)", progressEXP)
+            showBar.showBar(
+                player,
+                "§b농부 §f레벨 §b$farmer.loadLV(player) §f경험치 (${(farmer.loadEXP(player).toDouble()/(farmer.loadLV(player).toDouble() * 70) * 100).roundToInt()}%)",
+                farmer.loadEXP(player).toDouble()/(farmer.loadLV(player).toDouble() * 70)
+            )
         }
     }
 }
