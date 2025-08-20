@@ -32,19 +32,19 @@ class BTJob : JavaPlugin(), Listener, CommandExecutor {
         if (command.name.equals("job", ignoreCase = true)) {
             if (sender is Player) {
                 if (sender.isOp) {
-
+                    val api = GetLevel()
                     if (args.isNotEmpty()) {
                         when (args[0].lowercase()) {
                             "miner" -> {
-                                sender.sendMessage("Your Miner Level: §7${GetLevel.getMiner(sender)}")
+                                sender.sendMessage("Your Miner Level: §7${api.getMiner(sender)}")
                             }
 
                             "fisher" -> {
-                                sender.sendMessage("Your Fisher Level: §7${GetLevel.getFisher(sender)}")
+                                sender.sendMessage("Your Fisher Level: §7${api.getFisher(sender)}")
                             }
 
                             "farmer" -> {
-                                sender.sendMessage("Your Farmer Level: §7${GetLevel.getFarmer(sender)}")
+                                sender.sendMessage("Your Farmer Level: §7${api.getFarmer(sender)}")
                             }
                         }
                     }
