@@ -30,5 +30,5 @@ command /광부레벨:
         broadcast "%{_level}%"
 ```
 # License
-본 저작자는 영리활동을 진행하지 않으며, 진행할 수 없음을 밝힙니다. <br>
+본 저작물 이용자는 재판매 행위를 할 수 없음을 밝힙니다. <br>
 Discord: jhmoon_aa <br>
