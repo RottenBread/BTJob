@@ -42,14 +42,14 @@ class Farmer : Listener {
             player.sendMessage("§a[직업] §f농부의 레벨이 올랐어요! §e${farmer.loadLV(player) - 1} 레벨 §f-> §e${farmer.loadLV(player)} 레벨")
             showBar.showBar(
                 player,
-                "§b농부 §f레벨 §b$farmer.loadLV(player) §f경험치 (${(farmer.loadEXP(player).toDouble()/(farmer.loadLV(player).toDouble() * 70) * 100).roundToInt()}%)",
+                "§b농부 §f레벨 §b${farmer.loadLV(player)} §f경험치 (${(farmer.loadEXP(player).toDouble()/(farmer.loadLV(player).toDouble() * 70) * 100).roundToInt()}%)",
                 farmer.loadEXP(player).toDouble()/(farmer.loadLV(player).toDouble() * 70)
             )
         }
         else {
             showBar.showBar(
                 player,
-                "§b농부 §f레벨 §b$farmer.loadLV(player) §f경험치 (${(farmer.loadEXP(player).toDouble()/(farmer.loadLV(player).toDouble() * 70) * 100).roundToInt()}%)",
+                "§b농부 §f레벨 §b${farmer.loadLV(player)} §f경험치 (${(farmer.loadEXP(player).toDouble()/(farmer.loadLV(player).toDouble() * 70) * 100).roundToInt()}%)",
                 farmer.loadEXP(player).toDouble()/(farmer.loadLV(player).toDouble() * 70)
             )
         }

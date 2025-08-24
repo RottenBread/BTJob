@@ -14,13 +14,18 @@ class ShowBar : Listener {
     private val playerBossBars: MutableMap<Player, BossBar> = mutableMapOf()
     private val taskMap: MutableMap<Player, BukkitRunnable> = mutableMapOf()
 
-    fun showBar(player: Player, title: String, progress: Double) {
+    fun showBar(player: Player, title: String, progress: Double, isHunter: Boolean = false) {
         playerBossBars[player]?.let { existingBossBar ->
             existingBossBar.removePlayer(player)
             playerBossBars.remove(player)
         }
 
-        val bossBar: BossBar = Bukkit.createBossBar(title, BarColor.BLUE, BarStyle.SOLID)
+        val bossBar: BossBar = if (isHunter) {
+            Bukkit.createBossBar(title, BarColor.RED, BarStyle.SOLID)
+        } else {
+            Bukkit.createBossBar(title, BarColor.BLUE, BarStyle.SOLID)
+        }
+
         bossBar.progress = progress
         bossBar.addPlayer(player)
 

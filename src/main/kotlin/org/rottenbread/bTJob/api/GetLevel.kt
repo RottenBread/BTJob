@@ -19,4 +19,9 @@ class GetLevel: Listener {
         val fisher = DataSave("fisher")
         return fisher.loadLV(player)
     }
+
+    fun getHunter(player: Player): Int {
+        val hunter = DataSave("hunter")
+        return hunter.loadLV(player)
+    }
 }

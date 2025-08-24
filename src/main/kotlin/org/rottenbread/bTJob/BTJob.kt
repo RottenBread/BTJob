@@ -21,6 +21,7 @@ class BTJob : JavaPlugin(), Listener, CommandExecutor {
         server.pluginManager.registerEvents(Farmer(), this)
         server.pluginManager.registerEvents(Miner(), this)
         server.pluginManager.registerEvents(Fisher(), this)
+        server.pluginManager.registerEvents(Hunter(), this)
 
         server.pluginManager.registerEvents(GetLevel(), this)
         server.pluginManager.registerEvents(DataSave(), this)
@@ -46,6 +47,10 @@ class BTJob : JavaPlugin(), Listener, CommandExecutor {
                             "farmer" -> {
                                 sender.sendMessage("Your Farmer Level: §7${api.getFarmer(sender)}")
                             }
+
+                            "hunter" -> {
+                                sender.sendMessage("Your Hunter Level: §7${api.getHunter(sender)}")
+                            }
                         }
                     }
                 }
@@ -54,4 +59,3 @@ class BTJob : JavaPlugin(), Listener, CommandExecutor {
         return true
     }
 }
-
