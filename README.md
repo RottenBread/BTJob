@@ -19,7 +19,7 @@ v1.4 - 전투 레벨 추가, 농부와 어부의 레벨 출력이 이상하게 �
 # How To Use (Skript)
 ```
 import:
-  org.rottenbread.bTJob.api.GetLevel
+    org.rottenbread.bTJob.api.GetLevel
 
 on load:
     set {GetLevel} to new GetLevel()
