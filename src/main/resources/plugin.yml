@@ -1,0 +1,8 @@
+name: BTJob
+version: '1.5'
+main: org.rottenbread.bTJob.BTJob
+api-version: '1.21'
+commands:
+  job:
+    description: BTJob
+    usage: /job
